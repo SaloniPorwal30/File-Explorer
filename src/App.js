@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import FileExplorer from "./Components/FileExplorer";
+import {
+  createFolderHandler,
+  createFileHandler,
+  deleteFileHandler,
+  renameFileHandler,
+} from "./Components/Handlers";
+import { Files } from "./Files";
 
 function App() {
+  const [files, setFiles] = useState(Files);
+
+  const createFolder = (currentFolder, folderName) => {
+    const updatedFiles = createFolderHandler(currentFolder, folderName);
+    setFiles(updatedFiles);
+  };
+
+  const createFile = (currentFolder, fileName) => {
+    const updatedFiles = createFileHandler(currentFolder, fileName);
+    setFiles(updatedFiles);
+  };
+
+  const deleteFile = (fileName) => {
+    const updatedFiles = deleteFileHandler(files, fileName);
+    setFiles(updatedFiles);
+  };
+
+  const renameFile = (oldName, newName) => {
+    const updatedFiles = renameFileHandler(files, oldName, newName);
+    setFiles(updatedFiles);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <FileExplorer
+        files={files}
+        createFolder={createFolder}
+        createFile={createFile}
+        deleteFile={deleteFile}
+        renameFile={renameFile}
+      />
+    </>
   );
 }
 

@@ -1,0 +1,44 @@
+.div {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.expanded {
+    text-align: center;
+    margin: 20px;
+}
+
+.create-folder {
+    color: blue;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.create-file {
+    color: green;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: red;
+    color: #fff;
+    border: 1px solid #000;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.rename-button {
+    background-color: green;
+    color: #fff;
+    border: 1px solid #000;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
